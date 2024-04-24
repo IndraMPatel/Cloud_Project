@@ -1,23 +1,29 @@
 ## Cloud ia
 
-Tutorial: Building a Three-Tier Application with Docker
-- 21BCP301
+# Tutorial: Building a Three-Tier Application with Docker
+### - 21BCP311
 In this tutorial, we'll create a three-tier application using Docker, consisting of a presentation tier (front end), an application tier (back end), and a data tier (database). We'll use Docker's multi-container setup, along with Dockerfiles to build at least one Docker image.
 
+<h2>Prerequisites:</h2>
 
+* Basic understanding of Docker
+* Docker installed on your machine
 
-Prerequisites:
-Basic understanding of Docker
-Docker installed on your machine
-Tools and Technologies Used:
-* Docker * HTML/CSS/ (for front end) * Flask (for back end) * MySQL (for database)
-Frontend
+<h2>Tools and Technologies Used:</h2>
+* Docker
+* HTML/CSS/ (for front end)
+* Flask (for back end)
+* MySQL (for database)
+
+<h2>Frontend</h2>
 ### To set up the frontend:
-Create HTML files in the templates folder inside your project directory.
-Create CSS files in the static/css folder inside your project directory.
-Set up the HTML and CSS code as required.
-index.html
 
+* Create HTML files in the templates folder inside your project directory.
+* Create CSS files in the static/css folder inside your project directory.
+* Set up the HTML and CSS code as required.
+
+index.html
+```angular2html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +33,7 @@ index.html
 </head>
 <body>
     <h1>Todo List</h1>
-    <h3>by 21BCP301</h3>
+    <h3>by 21BCP311</h3>
     <form action="/add" method="POST">
         <input type="text" name="task" placeholder="Enter task">
         <button type="submit">Add Task</button>
@@ -39,24 +45,72 @@ index.html
     </ul>
 </body>
 </html>
-Backend
-app.py ```python from flask import Flask, render_template, request, redirect, url_for import mysql.connector
-app = Flask(name)
+```
 
-config = { 'user': 'root', # Replace 'root' with your MySQL username 'password': '1234', # Replace 'password' with your MySQL password 'host': 'localhost', 'database': 'todo_db', # Make sure this database exists or create it 'raise_on_warnings': True }
+<h2>Backend</h2>
+app.py
+```python
+from flask import Flask, render_template, request, redirect, url_for
+import mysql.connector
 
-def get_db_connection(): conn = mysql.connector.connect(**config) return conn
+app = Flask(__name__)
 
-def create_table(): conn = get_db_connection() cursor = conn.cursor() cursor.execute('''SHOW TABLES LIKE 'tasks' ''') if cursor.fetchone() is None: cursor.execute('''CREATE TABLE tasks (id INT AUTO_INCREMENT PRIMARY KEY, task VARCHAR(255))''') conn.commit() conn.close()
+config = {
+    'user': 'root',  # Replace 'root' with your MySQL username
+    'password': 'Indra@45',  # Replace 'password' with your MySQL password
+    'host': 'localhost',
+    'database': 'todo_db',  # Make sure this database exists or create it
+    'raise_on_warnings': True
+}
 
-@app.route('/') def index(): create_table() conn = get_db_connection() cursor = conn.cursor() cursor.execute("SELECT * FROM tasks") tasks = cursor.fetchall() conn.close() return render_template('index.html', tasks=tasks)
+def get_db_connection():
+    conn = mysql.connector.connect(**config)
+    return conn
 
-@app.route('/add', methods=['POST']) def add(): task = request.form['task'] conn = get_db_connection() cursor = conn.cursor() cursor.execute("INSERT INTO tasks (task) VALUES (%s)", (task,)) conn.commit() conn.close() return redirect(url_for('index'))
+def create_table():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''SHOW TABLES LIKE 'tasks' ''')
+    if cursor.fetchone() is None:
+        cursor.execute('''CREATE TABLE tasks
+                          (id INT AUTO_INCREMENT PRIMARY KEY, task VARCHAR(255))''')
+        conn.commit()
+    conn.close()
 
-@app.route('/delete/int:id') def delete(id): conn = get_db_connection() cursor = conn.cursor() cursor.execute("DELETE FROM tasks WHERE id = %s", (id,)) conn.commit() conn.close() return redirect(url_for('index'))
 
-if name == 'main': app.run(debug=True)
 
+@app.route('/')
+def index():
+    create_table()
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM tasks")
+    tasks = cursor.fetchall()
+    conn.close()
+    return render_template('index.html', tasks=tasks)
+
+@app.route('/add', methods=['POST'])
+def add():
+    task = request.form['task']
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO tasks (task) VALUES (%s)", (task,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('index'))
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM tasks WHERE id = %s", (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
 
 <h2>Database</h2>
 * MySQL is used as the database.
@@ -80,15 +134,18 @@ EXPOSE 5000
 ENV NAME World
 
 CMD ["python", "app.py"]
-Create a docker-compose.yml file
+```
 
+Create a <code>docker-compose.yml</code> file
+
+```yaml
 version: '3.1'
 
 services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: Indra@45
       MYSQL_DATABASE: todo_db
     ports:
       - "3307:3306" 
@@ -106,60 +163,78 @@ services:
 
 volumes:
   db_data:
-Add the requirements.txt
 
+```
+
+Add the <code>requirements.txt</code>
+
+```text
 flask~=3.0.0
 mysql-connector-python
-Here the complete code setup is done. Now run the command to run the app:
+```
+
+Here the complete code setup is done.
+Now run the command to run the app:
 
 For initial containerization
-
+```commandline
 docker-compose up
-Run this if you have made any changes
+```
 
+Run this if you have made any changes 
+```commandline
 docker-compose up --build
-Accessing the Application
+```
+<h3>Accessing the Application</h3>
 Once the application is running, you can access it in your web browser at http://localhost:5000.
-Stopping the Application
+
+<h3>Stopping the Application</h3>
 To stop the application and shut down the containers, press Ctrl + C in the terminal where the docker-compose up command was run.
-Result
-Running the command docker-compose up --build
 
-CLI
+# Result
+Running the command <code>docker-compose up --build</code>
 
-Containers created used command : docker ps
+![CLI](./Screenshot 2024-04-24 122413.png)
 
-CLI
+Containers created 
+used command : <code>docker ps</code>
 
-Containers created in the Docker Desktop
+![CLI](./Screenshot 2024-04-24 122723.png)
 
-Output
+Containers created in the <b>Docker Desktop</b>
 
-Output
+![Output](./Screenshot 2024-04-24 122809.png)
 
-Images created in Docker Desktop
+![Output](./Screenshot 2024-04-24 122838.png)
 
-Images
+Images created in <b>Docker Desktop</b>
+Screenshot 2024-04-24 122907.png)
+### TODO WEBAPP 
 
-TODO WEBAPP
-Output Output Output
+![Output](./Screenshot 2024-04-24 142002.png)
+![Output](./Screenshot 2024-04-24 142013.png)
+![Output](./Screenshot 2024-04-24 142022.png)
 
-Docker Hub
+## Docker Hub
+
 Now push the image to Dockerhub
+* In this case only flask image needs to be pushed in the dockerhub.
+* MySQL image is already available
 
-In this case only flask image needs to be pushed in the dockerhub.
-MySQL image is already available
-Follow this steps/commands to push the image:
+Follow this steps/commands to push the image: 
 
-Create an account on hub.docker.com
-To push the image to docker hub run the following commands
-docker build -t aryan150903/todo_db .
+1. Create an account on [hub.docker.com](https://hub.docker.com/)
+2. To push the image to docker hub run the following commands
+
+```commandline
+docker build -t indra2002/todo_db .
 docker login
-docker push aryan150903/todo_db
-Result:
-
+docker push indra2002/todo_db
+```
+Result: 
+```commandline
 Using default tag: latest
-The push refers to repository [docker.io/aryan150903/todo-db]
+The push refers to repository [docker.io/indra2002/todo-db]
 82cb948f17dd: Pushed
 c803286c183d: Pushed
 e6b485bec0e7: Pushed
@@ -168,19 +243,8 @@ a03ae7e93f37: Mounted from library/python
 e35535ad594c: Mounted from library/python
 bfc9081d1eb2: Mounted from library/python
 1f00ff201478: Mounted from library/python
-latest: digest: sha256:39078e2e9d8b44365e496918ccd82bcca9ad08714711fc4eb8b1efb504a3e1f4 size: 1998
-Dockerhub
+latest: digest: sha256:39078e2e9d8b44365e496918ccd82bcca9ad08714711fc4eb8b1efb504a3e1f4 size: 1998
+```
+![Dockerhub](./CLOUD_AI/Screenshot 2024-04-24 123112.png)
 
-
-![Screenshot](https://drive.google.com/file/d/1rLBGUB0gBVLyHpOPCPn7GBI5llcDq_y7/view?usp=sharing)
-![Screenshot](https://drive.google.com/file/d/1yuTX984wMrTBLkQMo4xYa_-JXE45UNAB/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1oXuJSF76X_bKdFEqkrV2O3SwW0XOlVNE/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1qMAaGi241b2g-HSpUj2WizoXuDTXuCBS/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1p9IuXv1Be_T7a9sXf7Dr5fwrrYx0a9pK/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1qz_qKi5jTHPQcVI2VVOVE-NnzFARbqe_/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1BMCbGc9EXI0DIgnVdPHMIZx8k63T2GpZ/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/188lIeo9rqFFnJ-9xjqh3gMYpj4pExywP/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1olH-74XKjn6vkh1nJn2CX3hULTDtVc9x/view?usp=drive_link)
+![Images](./images/DD4.png)
