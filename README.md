@@ -1,20 +1,9 @@
 ## Cloud ia
 
 Tutorial: Building a Three-Tier Application with Docker
-- 21BCP311
+- 21BCP301
 In this tutorial, we'll create a three-tier application using Docker, consisting of a presentation tier (front end), an application tier (back end), and a data tier (database). We'll use Docker's multi-container setup, along with Dockerfiles to build at least one Docker image.
-![Screenshot](https://drive.google.com/file/d/1rLBGUB0gBVLyHpOPCPn7GBI5llcDq_y7/view?usp=sharing)
-![Screenshot](https://drive.google.com/file/d/1yuTX984wMrTBLkQMo4xYa_-JXE45UNAB/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1oXuJSF76X_bKdFEqkrV2O3SwW0XOlVNE/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1qMAaGi241b2g-HSpUj2WizoXuDTXuCBS/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1p9IuXv1Be_T7a9sXf7Dr5fwrrYx0a9pK/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1qz_qKi5jTHPQcVI2VVOVE-NnzFARbqe_/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1BMCbGc9EXI0DIgnVdPHMIZx8k63T2GpZ/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/188lIeo9rqFFnJ-9xjqh3gMYpj4pExywP/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1olH-74XKjn6vkh1nJn2CX3hULTDtVc9x/view?usp=drive_link)
+
 
 
 Prerequisites:
@@ -38,7 +27,7 @@ index.html
 </head>
 <body>
     <h1>Todo List</h1>
-    <h3>by 21BCP311</h3>
+    <h3>by 21BCP301</h3>
     <form action="/add" method="POST">
         <input type="text" name="task" placeholder="Enter task">
         <button type="submit">Add Task</button>
@@ -183,4 +172,22 @@ latest: digest: sha256:39078e2e9d8b44365e496918ccd82bcca9ad08714711fc4eb8b1efb50
 Dockerhub
 
 
+![Screenshot](Screenshot 2024-04-24 122146.png)
 
+![Screenshot](Screenshot 2024-04-24 122413.png)
+
+![Screenshot](Screenshot 2024-04-24 122723.png)
+
+![Screenshot](Screenshot 2024-04-24 122809.png)
+
+![Screenshot](Screenshot 2024-04-24 122838.png)
+
+![Screenshot](Screenshot 2024-04-24 122146.png)
+
+![Screenshot](Screenshot 2024-04-24 122907.png)
+
+![Screenshot](Screenshot 2024-04-24 142002.png)
+
+![Screenshot](Screenshot 2024-04-24 142013.png)
+
+![Screenshot](Screenshot 2024-04-24 142022.png)
