@@ -3,7 +3,18 @@
 Tutorial: Building a Three-Tier Application with Docker
 - 21BCP311
 In this tutorial, we'll create a three-tier application using Docker, consisting of a presentation tier (front end), an application tier (back end), and a data tier (database). We'll use Docker's multi-container setup, along with Dockerfiles to build at least one Docker image.
-
+![Screenshot](https://drive.google.com/file/d/1rLBGUB0gBVLyHpOPCPn7GBI5llcDq_y7/view?usp=sharing)
+![Screenshot](https://drive.google.com/file/d/1yuTX984wMrTBLkQMo4xYa_-JXE45UNAB/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1oXuJSF76X_bKdFEqkrV2O3SwW0XOlVNE/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1qMAaGi241b2g-HSpUj2WizoXuDTXuCBS/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1p9IuXv1Be_T7a9sXf7Dr5fwrrYx0a9pK/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1qz_qKi5jTHPQcVI2VVOVE-NnzFARbqe_/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1BMCbGc9EXI0DIgnVdPHMIZx8k63T2GpZ/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/188lIeo9rqFFnJ-9xjqh3gMYpj4pExywP/view?usp=drive_link)
+![Screenshot](https://drive.google.com/file/d/1olH-74XKjn6vkh1nJn2CX3hULTDtVc9x/view?usp=drive_link)
 
 
 Prerequisites:
@@ -172,15 +183,4 @@ latest: digest: sha256:39078e2e9d8b44365e496918ccd82bcca9ad08714711fc4eb8b1efb50
 Dockerhub
 
 
-![Screenshot](https://drive.google.com/file/d/1rLBGUB0gBVLyHpOPCPn7GBI5llcDq_y7/view?usp=sharing)
-![Screenshot](https://drive.google.com/file/d/1yuTX984wMrTBLkQMo4xYa_-JXE45UNAB/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1oXuJSF76X_bKdFEqkrV2O3SwW0XOlVNE/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1qMAaGi241b2g-HSpUj2WizoXuDTXuCBS/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1p9IuXv1Be_T7a9sXf7Dr5fwrrYx0a9pK/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1qz_qKi5jTHPQcVI2VVOVE-NnzFARbqe_/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1BMCbGc9EXI0DIgnVdPHMIZx8k63T2GpZ/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1iI2bPHFks8zfqqKLdzaCALiOgHYJyLWb/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/188lIeo9rqFFnJ-9xjqh3gMYpj4pExywP/view?usp=drive_link)
-![Screenshot](https://drive.google.com/file/d/1olH-74XKjn6vkh1nJn2CX3hULTDtVc9x/view?usp=drive_link)
+
