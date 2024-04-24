@@ -16,7 +16,7 @@ In this tutorial, we'll create a three-tier application using Docker, consisting
 * MySQL (for database)
 
 <h2>Frontend</h2>
-### To set up the frontend:
+### To set up the frontend: 
 
 * Create HTML files in the templates folder inside your project directory.
 * Create CSS files in the static/css folder inside your project directory.
@@ -30,7 +30,7 @@ index.html
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-</head>
+</head> 
 <body>
     <h1>Todo List</h1>
     <h3>by 21BCP311</h3>
@@ -49,7 +49,7 @@ index.html
 
 <h2>Backend</h2>
 app.py
-```python
+```
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
 
@@ -194,26 +194,32 @@ To stop the application and shut down the containers, press Ctrl + C in the term
 # Result
 Running the command <code>docker-compose up --build</code>
 
-![CLI](./Screenshot 2024-04-24 122413.png)
+![Dockerhub](./images/1.png)
 
 Containers created 
 used command : <code>docker ps</code>
 
-![CLI](./Screenshot 2024-04-24 122723.png)
+![Dockerhub](./images/2.png)
 
 Containers created in the <b>Docker Desktop</b>
 
-![Output](./Screenshot 2024-04-24 122809.png)
+![Dockerhub](./images/3.png)
 
-![Output](./Screenshot 2024-04-24 122838.png)
+![Dockerhub](./images/4.png)
+
+![Dockerhub](./images/5.png)
 
 Images created in <b>Docker Desktop</b>
 Screenshot 2024-04-24 122907.png)
 ### TODO WEBAPP 
 
-![Output](./Screenshot 2024-04-24 142002.png)
-![Output](./Screenshot 2024-04-24 142013.png)
-![Output](./Screenshot 2024-04-24 142022.png)
+![Dockerhub](./images/6.png)
+
+
+![Dockerhub](./images/7.png)
+
+
+![Dockerhub](./images/8.png)
 
 ## Docker Hub
 
@@ -245,10 +251,5 @@ bfc9081d1eb2: Mounted from library/python
 1f00ff201478: Mounted from library/python
 latest: digest: sha256:39078e2e9d8b44365e496918ccd82bcca9ad08714711fc4eb8b1efb504a3e1f4 size: 1998
 ```
-<<<<<<< HEAD
-![Dockerhub](./images/1.png)
-=======
-![Dockerhub](./Screenshot 2024-04-24 123112.png)
-
->>>>>>> 18dd9e48d7161b86580b551dddeb5e4dc920d75a
+![Dockerhub](./images/last.png)
 
