@@ -245,6 +245,5 @@ bfc9081d1eb2: Mounted from library/python
 1f00ff201478: Mounted from library/python
 latest: digest: sha256:39078e2e9d8b44365e496918ccd82bcca9ad08714711fc4eb8b1efb504a3e1f4 size: 1998
 ```
-![Dockerhub](./CLOUD_AI/Screenshot 2024-04-24 123112.png)
+![Dockerhub](./images/1.png)
 
-![Images](./images/DD4.png)
