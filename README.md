@@ -49,7 +49,7 @@ index.html
 
 <h2>Backend</h2>
 app.py
-```
+```python
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
 
@@ -111,6 +111,7 @@ def delete(id):
 if __name__ == '__main__':
     app.run(debug=True)
 ```
+
 
 <h2>Database</h2>
 * MySQL is used as the database.
